@@ -17,28 +17,29 @@
 
 using namespace std;
 
-class FSCObjects: public FSCObject {
+class FSCObjects {
 public:
 	FSCObjects();
 
 	void addObject(shared_ptr<FSCObject> object);
 
-        shared_ptr<FSCObject> objectWithId(int id);
-        
-        shared_ptr<FSCObject> objectAtIndex(unsigned int index);
-        
-	int size();
+      shared_ptr<FSCObject> objectWithId(int id);
+	shared_ptr<FSCObject> objectAtIndex(unsigned int index);
 
-        vector <shared_ptr<FSCObject> > *getObjectsVector();
-        
 	void removeObjectAtIndex(unsigned int index);
 	void removeAllObjects();
+
+	shared_ptr<FSCObject> objectWithIdentifier(shared_ptr<string> identifier);
+	void removeObjectWithIdentifier(shared_ptr<string> identifier);
+
+	int size();
 
 	virtual ~FSCObjects();
 
 private:
 	vector <shared_ptr<FSCObject> > objects;
-        map <int, shared_ptr<FSCObject> > idToObject;
+      map <int, shared_ptr<FSCObject> > idToObject;
+	map<string, shared_ptr<FSCObject> > identifierToComponentMap;
         
 };
 

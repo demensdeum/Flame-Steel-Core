@@ -6,9 +6,9 @@
  */
 
 #include "FSCObject.h"
-#include "FSCComponents.h"
 
 #include <iostream>
+#include "FSCObjects.h"
 
 using namespace std;
 
@@ -21,7 +21,7 @@ FSCObject::FSCObject() {
     classIdentifier = shared_ptr<string>();
     instanceIdentifier = shared_ptr<string>();
     
-    components = shared_ptr<FSCComponents>();
+    components = make_shared<FSCObjects>();
     
     FSCLastObjectID++;
 }
@@ -47,61 +47,31 @@ shared_ptr<string> FSCObject::getClassIdentifier() {
 }
 
 shared_ptr<FSCObject> FSCObject::getComponent(shared_ptr<string> identifier) {
-    
-	if (!this->components) {
-            
-		printf("warning cannot get component - components array is nullptr\n");
-
-		return shared_ptr<FSCObject>();
-                
-	}
-	else
-	{
-		return this->components->getComponent(identifier);
-	}    
+	return components->objectWithIdentifier(identifier);
 }
 
 /*! removeComponent - remove component by identifier*/
 void FSCObject::removeComponent(shared_ptr<string> identifier) {
-	this->components->removeComponent(identifier);
-}
-
-shared_ptr<FSCObject> FSCObject::copy() {
-	return shared_ptr<FSCObject>();
+	components->removeObjectWithIdentifier(identifier);
 }
 
 /*! addComponent - add component*/
 void FSCObject::addComponent(shared_ptr<FSCObject> component) {
-	if (!this->components)
-	{
-		shared_ptr<FSCComponents> components(new FSCComponents());
-		this->components = components;
+
+	if (component.get() == nullptr) {
+
+		cout << "Trying to add empty object... about" << endl;
+		exit(1);
 	}
-	this->components->addComponent(component);
-}
 
-void FSCObject::debugPrintout() {
+	if (components.get() == nullptr) {
 
-    if (classIdentifier == nullptr) {
-        
-        cout << "classIdentifier = nullptr. Quit" << endl;
-        exit(1);
-    }
-    
-    if (instanceIdentifier == nullptr) {
-        
-        cout << "instanceIdentifier = nullptr. Quit" << endl;
-        exit(1);
-    }
-	cout << "My class: " << classIdentifier->c_str() << endl;
-        cout << "My instance identifier: " << instanceIdentifier->c_str() << endl;
+		cout << "Trying to insert component into empty object... about" << endl;
+		exit(1);
 
-	cout << "My components: " << endl;
-
-	if (this->components)
-	{
-		this->components->debugPrintout();
 	}
+
+	components->addObject(component);
 }
 
 FSCObject::~FSCObject() {

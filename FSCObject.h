@@ -12,7 +12,7 @@
 #include <memory>
 #include "FSCSerializable.h"
 
-class FSCComponents;
+class FSCObjects;
 
 using namespace std;
 
@@ -47,10 +47,6 @@ public:
 
 	/*! removeComponent - remove component by identifier*/
 	void removeComponent(shared_ptr<string> identifier);
-
-	virtual shared_ptr<FSCObject> copy();
-
-	void debugPrintout();
         
 private:
 	/*! instanceIdentifier - string identifier of object */
@@ -60,7 +56,7 @@ private:
 	shared_ptr<string> classIdentifier;
         
 	/*! components - getter list of components from CES pattern @return components*/
-	shared_ptr<FSCComponents> components;
+	shared_ptr<FSCObjects> components;
 
 };
 
