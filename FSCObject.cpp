@@ -10,20 +10,20 @@
 
 #include <iostream>
 
-using namespace std;
+#include <boost/uuid/uuid_io.hpp>
+#include <boost/uuid/random_generator.hpp>
 
-int FSCLastObjectID = 0;
+using namespace std;
 
 FSCObject::FSCObject() {
         
-    id = FSCLastObjectID;
+	boost::uuids::random_generator generator;
+	uuid = boost::uuids::to_string(generator());
+
+	classIdentifier = shared_ptr<string>();
+	instanceIdentifier = shared_ptr<string>();
     
-    classIdentifier = shared_ptr<string>();
-    instanceIdentifier = shared_ptr<string>();
-    
-    components = shared_ptr<FSCComponents>();
-    
-    FSCLastObjectID++;
+	components = shared_ptr<FSCComponents>();
 }
 
 void FSCObject::setInstanceIdentifier(shared_ptr<string> instanceIdentifier) {

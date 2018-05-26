@@ -16,16 +16,14 @@ class FSCComponents;
 
 using namespace std;
 
-/*! FSCObject - base class of Flame Steel Engine */
-
-extern int FSCLastObjectID;
+/*! FSCObject - base class of Flame Steel Core */
 
 class FSCObject : public FSCSerializable {
 public:
 	FSCObject();
 	virtual ~FSCObject();
 
-        int id;
+        string uuid;
         
 	/*! instanceIdentifier setter - string identifier of object */
 	void setInstanceIdentifier(shared_ptr<string> gameSceneIdentifier);

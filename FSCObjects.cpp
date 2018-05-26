@@ -15,14 +15,13 @@ FSCObjects::FSCObjects() {
 
 void FSCObjects::addObject(shared_ptr<FSCObject> object) {
     
-    objects.push_back(object);
-    
-    idToObject[object->id] = object;
+	objects.push_back(object);
+	uuidToObject[object->uuid] = object;
 }
 
-shared_ptr<FSCObject> FSCObjects::objectWithId(int id) {
+shared_ptr<FSCObject> FSCObjects::objectWithUUID(string uuid) {
     
-    return idToObject[id];
+    return uuidToObject[uuid];
     
 }
 

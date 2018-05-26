@@ -23,7 +23,7 @@ public:
 
 	void addObject(shared_ptr<FSCObject> object);
 
-        shared_ptr<FSCObject> objectWithId(int id);
+        shared_ptr<FSCObject> objectWithUUID(string uuid);
         
         shared_ptr<FSCObject> objectAtIndex(unsigned int index);
         
@@ -38,7 +38,7 @@ public:
 
 private:
 	vector <shared_ptr<FSCObject> > objects;
-        map <int, shared_ptr<FSCObject> > idToObject;
+        map <string, shared_ptr<FSCObject> > uuidToObject;
         
 };
 
