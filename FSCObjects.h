@@ -17,7 +17,7 @@
 
 using namespace std;
 
-class FSCObjects: public FSCObject {
+class FSCObjects {
 public:
 	FSCObjects();
 
@@ -29,16 +29,19 @@ public:
         
 	int size();
 
-        vector <shared_ptr<FSCObject> > *getObjectsVector();
-        
 	void removeObjectAtIndex(unsigned int index);
 	void removeAllObjects();
+
+	shared_ptr<FSCObject> objectWithIdentifier(shared_ptr<string> identifier);
+	void removeObjectWithIdentifier(shared_ptr<string> identifier);
 
 	virtual ~FSCObjects();
 
 private:
 	vector <shared_ptr<FSCObject> > objects;
-        map <string, shared_ptr<FSCObject> > uuidToObject;
+
+      map <string, shared_ptr<FSCObject> > uuidToObject;
+	map<string, shared_ptr<FSCObject> > identifierToComponentMap;
         
 };
 
