@@ -31,6 +31,29 @@ void FSCObjects::addObject(shared_ptr<FSCObject> object) {
 	identifierToComponentMap[*classIdentifier.get()] = object;
 }
 
+void FSCObjects::removeObject(shared_ptr<FSCObject> object) {
+
+	if (object.get() == nullptr)
+	{
+		throw "Trying to remove nullptr object";
+	}
+
+	auto index = 0;
+
+	for (auto item : objects) {
+
+		index += 1;
+
+		if (item->uuid.compare(object->uuid) == 0) {
+
+			objects.erase(objects.begin() + index);
+			return;
+		}
+
+	}
+
+}
+
 shared_ptr<FSCObject> FSCObjects::objectWithUUID(string uuid) {
     
     return uuidToObject[uuid];

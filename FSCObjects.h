@@ -34,6 +34,7 @@ public:
 
 	shared_ptr<FSCObject> objectWithIdentifier(shared_ptr<string> identifier);
 	void removeObjectWithIdentifier(shared_ptr<string> identifier);
+	void removeObject(shared_ptr<FSCObject> object);
 
 	virtual ~FSCObjects();
 
