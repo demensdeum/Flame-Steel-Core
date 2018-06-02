@@ -22,19 +22,18 @@ public:
 	FSCObjects();
 
 	void addObject(shared_ptr<FSCObject> object);
-
-        shared_ptr<FSCObject> objectWithUUID(string uuid);
-        
-        shared_ptr<FSCObject> objectAtIndex(unsigned int index);
-        
-	int size();
-
 	void removeObjectAtIndex(unsigned int index);
 	void removeAllObjects();
 
-	shared_ptr<FSCObject> objectWithIdentifier(shared_ptr<string> identifier);
-	void removeObjectWithIdentifier(shared_ptr<string> identifier);
+      shared_ptr<FSCObject> objectWithUUID(string uuid);
+      shared_ptr<FSCObject> objectAtIndex(unsigned int index);
+	vector<shared_ptr<FSCObject> > objectsWithClassIdentifier(shared_ptr<string> identifier);
+	shared_ptr<FSCObject> objectWithInstanceIdentifier(shared_ptr<string> instanceIdentifier);
 	void removeObject(shared_ptr<FSCObject> object);
+	void removeObjectWithClassIdentifier(shared_ptr<string> classIdentifier);
+
+
+	int size();
 
 	virtual ~FSCObjects();
 
@@ -42,7 +41,8 @@ private:
 	vector <shared_ptr<FSCObject> > objects;
 
       map <string, shared_ptr<FSCObject> > uuidToObject;
-	map<string, shared_ptr<FSCObject> > identifierToComponentMap;
+	map<string, vector<shared_ptr<FSCObject>> > classIdentifierToComponentMap;
+	map<string, shared_ptr<FSCObject> > instanceIdentifierToObjectMap;
         
 };
 

@@ -47,12 +47,22 @@ shared_ptr<string> FSCObject::getClassIdentifier() {
 }
 
 shared_ptr<FSCObject> FSCObject::getComponent(shared_ptr<string> identifier) {
-	return components->objectWithIdentifier(identifier);
+
+	auto objects = components->objectsWithClassIdentifier(identifier);
+	
+	if (objects.size() < 1)
+	{
+		throw "FSCObject::getComponent - trying to get component from many components with same class identifier";
+	}
+
+	auto object = objects[0];
+
+	return object;
 }
 
 /*! removeComponent - remove component by identifier*/
 void FSCObject::removeComponent(shared_ptr<string> identifier) {
-	components->removeObjectWithIdentifier(identifier);
+	components->removeObjectWithClassIdentifier(identifier);
 }
 
 /*! addComponent - add component*/
