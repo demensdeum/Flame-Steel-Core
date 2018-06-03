@@ -27,4 +27,12 @@ public:
 	virtual ~FSCUtils();
 };
 
+namespace FlameSteelCore {
+namespace Utils {
+
+	string LocalizedString(const char *key);
+
+}
+}
+
 #endif /* FSCUTILS_H_ */

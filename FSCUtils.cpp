@@ -34,3 +34,9 @@ shared_ptr<string> FSCUtils::localizedString(shared_ptr<string> key) {
 FSCUtils::~FSCUtils() {
     // TODO Auto-generated destructor stub
 }
+
+string FlameSteelCore::Utils::LocalizedString(const char *key) {
+
+	return string(key);
+
+}
