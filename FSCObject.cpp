@@ -52,7 +52,17 @@ shared_ptr<FSCObject> FSCObject::getComponent(shared_ptr<string> identifier) {
 	
 	if (objects.size() < 1)
 	{
-		throw "FSCObject::getComponent - trying to get component from many components with same class identifier";
+		string errorString = "FSCObject::getComponent - there is no component with class identifier: ";
+		errorString += *identifier.get();
+
+		throw logic_error(errorString);
+	}
+	else if (objects.size() > 1)
+	{
+		string errorString = "FSCObject::getComponent - trying to get component from many components with same class identifier: ";
+		errorString += *identifier.get();
+
+		throw logic_error(errorString);
 	}
 
 	auto object = objects[0];

@@ -17,11 +17,8 @@ FSCUtils::FSCUtils() {
 
 int FSCUtils::FSCRandomInt(int maximalInt) {
 
-
     if (maximalInt == 0) {
-
         return 0;
-
     }
 
     int randomUInt = rand() % maximalInt;
