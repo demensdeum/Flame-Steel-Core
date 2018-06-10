@@ -21,9 +21,9 @@ int FSCUtils::FSCRandomInt(int maximalInt) {
         return 0;
     }
 
-    int randomUInt = rand() % maximalInt;
+    int randomInt = rand() % maximalInt;
 
-    return randomUInt;
+    return randomInt;
 }
 
 shared_ptr<string> FSCUtils::localizedString(shared_ptr<string> key) {

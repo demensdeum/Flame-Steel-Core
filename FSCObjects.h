@@ -29,9 +29,9 @@ public:
       shared_ptr<FSCObject> objectAtIndex(unsigned int index);
 	vector<shared_ptr<FSCObject> > objectsWithClassIdentifier(shared_ptr<string> identifier);
 	shared_ptr<FSCObject> objectWithInstanceIdentifier(shared_ptr<string> instanceIdentifier);
+
 	void removeObject(shared_ptr<FSCObject> object);
 	void removeObjectWithClassIdentifier(shared_ptr<string> classIdentifier);
-
 
 	int size();
 
