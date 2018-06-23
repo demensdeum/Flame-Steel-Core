@@ -112,13 +112,11 @@ void FSCObjects::removeObjectAtIndex(unsigned int index) {
 
 void FSCObjects::removeAllObjects() {
 
-    for (unsigned int i = 0; i < objects.size(); i++) {
-        
-        i--;
-        objects.pop_back();
-        
-    }
-    
+	objects.clear();
+	uuidToObject.clear();
+	classIdentifierToComponentMap.clear();
+	instanceIdentifierToObjectMap.clear();
+
 }
 
 void FSCObjects::removeObjectWithClassIdentifier(shared_ptr<string> classIdentifier) {
