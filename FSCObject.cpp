@@ -9,16 +9,14 @@
 
 #include <iostream>
 #include "FSCObjects.h"
-
-#include <boost/uuid/uuid_io.hpp>
-#include <boost/uuid/random_generator.hpp>
+#include <FlameSteelFramework/FlameSteelCore/sole.hpp>
 
 using namespace std;
 
 FSCObject::FSCObject() {
         
-	boost::uuids::random_generator generator;
-	uuid = boost::uuids::to_string(generator());
+	auto uuidContainer = sole::uuid0();
+	uuid = uuidContainer.str();
     
 	classIdentifier = shared_ptr<string>();
 	instanceIdentifier = shared_ptr<string>();
