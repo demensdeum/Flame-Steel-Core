@@ -74,14 +74,13 @@ void FSCObjects::removeObject(shared_ptr<FSCObject> object) {
 
 	for (auto item : objects) {
 
-		index += 1;
-
 		if (item->uuid.compare(object->uuid) == 0) {
 
 			objects.erase(objects.begin() + index);
 			return;
 		}
-
+		
+		index += 1;
 	}
 
 }
