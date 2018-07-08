@@ -24,6 +24,12 @@ FSCObject::FSCObject() {
 	components = make_shared<FSCObjects>();
 }
 
+bool FSCObject::containsComponentWithIdentifier(shared_ptr<string> identifier) {
+
+	return components->containsComponentWithIdentifier(identifier);
+
+}
+
 void FSCObject::setInstanceIdentifier(shared_ptr<string> instanceIdentifier) {
     
 	this->instanceIdentifier = instanceIdentifier;

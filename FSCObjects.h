@@ -33,6 +33,8 @@ public:
 	void removeObject(shared_ptr<FSCObject> object);
 	void removeObjectWithClassIdentifier(shared_ptr<string> classIdentifier);
 
+	bool containsComponentWithIdentifier(shared_ptr<string> identifier);
+
 	int size();
 
 	virtual ~FSCObjects();

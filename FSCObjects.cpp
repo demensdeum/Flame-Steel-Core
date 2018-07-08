@@ -14,6 +14,12 @@ FSCObjects::FSCObjects() {
     
 }
 
+bool FSCObjects::containsComponentWithIdentifier(shared_ptr<string> identifier) {
+
+	return classIdentifierToComponentMap.find(*identifier) != classIdentifierToComponentMap.end();
+
+}
+
 void FSCObjects::addObject(shared_ptr<FSCObject> object) {
     
 	if (object->getClassIdentifier().get() == nullptr) {

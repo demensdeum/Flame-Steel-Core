@@ -46,6 +46,8 @@ public:
 	/*! removeComponent - remove component by identifier*/
 	void removeComponent(shared_ptr<string> identifier);
         
+	bool containsComponentWithIdentifier(shared_ptr<string> identifier);
+
 private:
 	/*! instanceIdentifier - string identifier of object */
 	shared_ptr<string> instanceIdentifier;
