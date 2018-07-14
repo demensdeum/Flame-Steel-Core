@@ -1,26 +1,26 @@
 /*
- * FSCObjects.cpp
+ * Objects.cpp
  *
  *  Created on: Jul 31, 2016
  *      Author: demensdeum
  */
 
-#include "FSCObjects.h"
+#include "Objects.h"
 
 #include <cstddef>
 #include <iostream>
 
-FSCObjects::FSCObjects() {
+Objects::Objects() {
     
 }
 
-bool FSCObjects::containsComponentWithIdentifier(shared_ptr<string> identifier) {
+bool Objects::containsComponentWithIdentifier(shared_ptr<string> identifier) {
 
 	return classIdentifierToComponentMap.find(*identifier) != classIdentifierToComponentMap.end();
 
 }
 
-void FSCObjects::addObject(shared_ptr<FSCObject> object) {
+void Objects::addObject(shared_ptr<Object> object) {
     
 	if (object->getClassIdentifier().get() == nullptr) {
 
@@ -62,14 +62,14 @@ void FSCObjects::addObject(shared_ptr<FSCObject> object) {
 	}
 	else
 	{
-		vector<shared_ptr<FSCObject> > objects;
+		vector<shared_ptr<Object> > objects;
 		objects.push_back(object);
 
 		classIdentifierToComponentMap[classIdentifierString] = objects;
 	}
 }
 
-void FSCObjects::removeObject(shared_ptr<FSCObject> object) {
+void Objects::removeObject(shared_ptr<Object> object) {
 
 	if (object.get() == nullptr)
 	{
@@ -91,31 +91,31 @@ void FSCObjects::removeObject(shared_ptr<FSCObject> object) {
 
 }
 
-shared_ptr<FSCObject> FSCObjects::objectWithUUID(string uuid) {
+shared_ptr<Object> Objects::objectWithUUID(string uuid) {
     
     return uuidToObject[uuid];
     
 }
 
-shared_ptr<FSCObject> FSCObjects::objectAtIndex(unsigned int index) {
+shared_ptr<Object> Objects::objectAtIndex(unsigned int index) {
 	if (index >= objects.size()) {
-		return shared_ptr<FSCObject>();
+		return shared_ptr<Object>();
 	}
 
 	return objects[index];
 }
 
-int FSCObjects::size() {
+int Objects::size() {
 	return objects.size();
 }
 
-void FSCObjects::removeObjectAtIndex(unsigned int index) {
+void Objects::removeObjectAtIndex(unsigned int index) {
 	if (index < objects.size()) {
 		objects.erase(objects.begin() + index);
 	}
 }
 
-void FSCObjects::removeAllObjects() {
+void Objects::removeAllObjects() {
 
 	objects.clear();
 	uuidToObject.clear();
@@ -124,13 +124,13 @@ void FSCObjects::removeAllObjects() {
 
 }
 
-void FSCObjects::removeObjectWithClassIdentifier(shared_ptr<string> classIdentifier) {
+void Objects::removeObjectWithClassIdentifier(shared_ptr<string> classIdentifier) {
 
-	throw logic_error("FSCObjects::removeObjectWithClassIdentifier unimplemented");
+	throw logic_error("Objects::removeObjectWithClassIdentifier unimplemented");
 
 }
 
-vector<shared_ptr<FSCObject> > FSCObjects::objectsWithClassIdentifier(shared_ptr<string> identifier) {
+vector<shared_ptr<Object> > Objects::objectsWithClassIdentifier(shared_ptr<string> identifier) {
 
 	auto classIdentifierString = *identifier.get();
 
@@ -143,14 +143,14 @@ vector<shared_ptr<FSCObject> > FSCObjects::objectsWithClassIdentifier(shared_ptr
 	}
 	else {
 
-		vector<shared_ptr<FSCObject> > emptyVector;
+		vector<shared_ptr<Object> > emptyVector;
 
 		return emptyVector;
 
 	}
 }
 
-shared_ptr<FSCObject> FSCObjects::objectWithInstanceIdentifier(shared_ptr<string> instanceIdentifier) {
+shared_ptr<Object> Objects::objectWithInstanceIdentifier(shared_ptr<string> instanceIdentifier) {
 
 	auto instanceIdentifierString = *instanceIdentifier.get();
 
@@ -163,11 +163,11 @@ shared_ptr<FSCObject> FSCObjects::objectWithInstanceIdentifier(shared_ptr<string
 	}
 	else {
 
-		return shared_ptr<FSCObject>();
+		return shared_ptr<Object>();
 
 	}
 }
 
-FSCObjects::~FSCObjects() {
+Objects::~Objects() {
 	// TODO Auto-generated destructor stub
 }

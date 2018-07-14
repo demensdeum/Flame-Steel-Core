@@ -8,17 +8,23 @@
 #ifndef FSCCONTROLLER_H_
 #define FSCCONTROLLER_H_
 
-#include "FSCObject.h"
+#include "Object.h"
+
+using namespace FlameSteelCore;
+
+namespace FlameSteelCore  {
 
 /*! FSCController - controller class from MVC pattern */
 
-class FSCController : public FSCObject  {
+class Controller : public Object  {
 public:
-	FSCController();
-	virtual ~FSCController();
+	Controller();
+	virtual ~Controller();
 
 	/*! step() - method to be called inside loop, represents one iteration of some process */
 	virtual void step();
+};
+
 };
 
 #endif /* FSCCONTROLLER_H_ */

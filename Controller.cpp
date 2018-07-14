@@ -5,20 +5,20 @@
  *      Author: demensdeum
  */
 
-#include "FSCObject.h"
-#include "FSCController.h"
+#include "Object.h"
+#include "Controller.h"
 
 using namespace std;
 
-FSCController::FSCController() {
+Controller::Controller() {
 	// TODO Auto-generated constructor stub
 
 }
 
-void FSCController::step() {
+void Controller::step() {
 
 }
 
-FSCController::~FSCController() {
+Controller::~Controller() {
 	// TODO Auto-generated destructor stub
 }

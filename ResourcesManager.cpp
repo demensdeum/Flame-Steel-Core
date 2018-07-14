@@ -1,21 +1,21 @@
 /*
- * FSCResourcesManager.cpp
+ * ResourcesManager.cpp
  *
  *  Created on: Jan 16, 2017
  *      Author: demensdeum
  */
 
-#include "FSCResourcesManager.h"
+#include "ResourcesManager.h"
 #include <iostream>
 
 using namespace std;
 
-FSCResourcesManager::FSCResourcesManager() {
+ResourcesManager::ResourcesManager() {
 	// TODO Auto-generated constructor stub
 
 }
 
-shared_ptr<FSCResource> FSCResourcesManager::getResourceByName(shared_ptr<string> name) {
+shared_ptr<Resource> ResourcesManager::getResourceByName(shared_ptr<string> name) {
 
     
     //cout << "getResourceByName: " << name->c_str() << endl;
@@ -23,14 +23,14 @@ shared_ptr<FSCResource> FSCResourcesManager::getResourceByName(shared_ptr<string
 	return resourcesMap[*name.get()];
 }
 
-void FSCResourcesManager::setResourceWithName(shared_ptr<string> name, shared_ptr<FSCResource> resource) {
+void ResourcesManager::setResourceWithName(shared_ptr<string> name, shared_ptr<Resource> resource) {
 
         cout << "setResourceByName: " << name->c_str() << endl;
     
 	resourcesMap[*name.get()] = resource;
 }
 
-void FSCResourcesManager::clear() {
+void ResourcesManager::clear() {
 
 	auto itr = resourcesMap.begin();
 
@@ -41,7 +41,7 @@ void FSCResourcesManager::clear() {
 }
 
 
-FSCResourcesManager::~FSCResourcesManager() {
+ResourcesManager::~ResourcesManager() {
 	// TODO Auto-generated destructor stub
 }
 

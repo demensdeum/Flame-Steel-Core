@@ -1,5 +1,5 @@
 /*
- * FSCObject.h
+ * Object.h
  *
  *  Created on: Jul 10, 2016
  *      Author: demensdeum
@@ -10,18 +10,20 @@
 
 #include <string>
 #include <memory>
-#include "FSCSerializable.h"
+#include "Serializable.h"
 
-class FSCObjects;
+class Objects;
 
 using namespace std;
 
-/*! FSCObject - base class of Flame Steel Core */
+namespace FlameSteelCore {
 
-class FSCObject : public FSCSerializable {
+/*! Object - base class of Flame Steel Core */
+
+class Object : public Serializable {
 public:
-	FSCObject();
-	virtual ~FSCObject();
+	Object();
+	virtual ~Object();
 
         string uuid;
         
@@ -38,10 +40,10 @@ public:
 	shared_ptr<string> getClassIdentifier();
 
 	/*! addComponent - add component*/
-	void addComponent(shared_ptr<FSCObject> component);
+	void addComponent(shared_ptr<Object> component);
 
 	/*! getComponent - get component by identifier*/
-	shared_ptr<FSCObject> getComponent(shared_ptr<string> identifier);
+	shared_ptr<Object> getComponent(shared_ptr<string> identifier);
 
 	/*! removeComponent - remove component by identifier*/
 	void removeComponent(shared_ptr<string> identifier);
@@ -56,7 +58,9 @@ private:
 	shared_ptr<string> classIdentifier;
         
 	/*! components - getter list of components from CES pattern @return components*/
-	shared_ptr<FSCObjects> components;
+	shared_ptr<Objects> components;
+
+};
 
 };
 

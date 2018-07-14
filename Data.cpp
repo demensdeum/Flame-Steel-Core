@@ -1,15 +1,17 @@
-#include "FSCData.h"
+#include "Data.h"
 
-FSCData::FSCData() {
+using namespace FlameSteelCore;
+
+Data::Data() {
 
 	size = 0;
 	data = nullptr;
 
 };
 
-shared_ptr<FSCData> FSCData::fromFilePath(shared_ptr<string> filePath) {
+shared_ptr<Data> Data::fromFilePath(shared_ptr<string> filePath) {
 
-	auto data = make_shared<FSCData>();
+	auto data = make_shared<Data>();
 
 	char *buffer = nullptr;
 	auto file = fopen (filePath->c_str(), "rb");

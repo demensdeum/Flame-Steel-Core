@@ -8,12 +8,17 @@
 #ifndef FSCRESOURCE_H_
 #define FSCRESOURCE_H_
 
-#include "FSCObject.h"
+#include "Object.h"
 
-class FSCResource: public FSCObject {
+using namespace FlameSteelCore;
+
+namespace FlameSteelCore {
+
+class Resource: public Object {
 public:
-	FSCResource();
-	virtual ~FSCResource();
+	Resource();
+	virtual ~Resource();
+};
 };
 
 #endif /* FSCRESOURCE_H_ */

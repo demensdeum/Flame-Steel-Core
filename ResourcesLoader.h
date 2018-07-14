@@ -5,7 +5,7 @@
  */
 
 /* 
- * File:   FSCResourceLoader.h
+ * File:   ResourceLoader.h
  * Author: demensdeum
  *
  * Created on March 12, 2017, 9:28 AM
@@ -14,19 +14,22 @@
 #ifndef FSCRESOURCELOADER_H
 #define FSCRESOURCELOADER_H
 
-#include "FSCResource.h"
-#include "FSCResourcesManager.h"
+#include "Resource.h"
+#include "ResourcesManager.h"
 
-class FSCResourcesLoader {
+namespace FlameSteelCore {
+
+class ResourcesLoader {
 public:
-    FSCResourcesLoader();
-    FSCResourcesLoader(const FSCResourcesLoader& orig);
-    virtual ~FSCResourcesLoader();
+    ResourcesLoader();
+    ResourcesLoader(const ResourcesLoader& orig);
+    virtual ~ResourcesLoader();
     
-    virtual void loadURL(shared_ptr<string> url, shared_ptr<FSCResourcesManager> resourcesManager);    
+    virtual void loadURL(shared_ptr<string> url, shared_ptr<ResourcesManager> resourcesManager);    
     
 private:
 
+};
 };
 
 #endif /* FSCRESOURCELOADER_H */

@@ -5,19 +5,19 @@
  */
 
 /* 
- * File:   FSCSerializable.cpp
+ * File:   Serializable.cpp
  * Author: demensdeum
  * 
  * Created on July 2, 2017, 10:13 AM
  */
 
-#include "FSCSerializable.h"
+#include "Serializable.h"
 
-FSCSerializable::FSCSerializable() {
+Serializable::Serializable() {
 }
 
-FSCSerializable::FSCSerializable(const FSCSerializable& ) {
+Serializable::Serializable(const Serializable& ) {
 }
 
-FSCSerializable::~FSCSerializable() {
+Serializable::~Serializable() {
 }
