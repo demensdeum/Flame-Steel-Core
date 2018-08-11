@@ -9,7 +9,7 @@
 
 #include <iostream>
 #include "Objects.h"
-#include <FlameSteelFramework/FlameSteelCore/sole.hpp>
+#include <FlameSteelCore/sole.hpp>
 
 using namespace std;
 
