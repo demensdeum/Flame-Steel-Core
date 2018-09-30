@@ -26,6 +26,10 @@ int FSCUtils::FSCRandomInt(int maximalInt) {
     return randomInt;
 }
 
+bool FSCUtils::FSCRandomBool() {
+	return FSCRandomInt(2);
+}
+
 shared_ptr<string> FSCUtils::localizedString(shared_ptr<string> key) {
 
     return key;

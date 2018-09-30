@@ -22,6 +22,8 @@ public:
 	/*! FSCRandomUInt - return random unsigned integer from zero to maximalUInt*/
 	static int FSCRandomInt(int maximalInt);
         
+	static bool FSCRandomBool();
+
         static shared_ptr<string> localizedString(shared_ptr<string> key);
 
 	virtual ~FSCUtils();
