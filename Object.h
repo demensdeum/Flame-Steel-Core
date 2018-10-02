@@ -16,6 +16,8 @@ class Objects;
 
 using namespace std;
 
+static unsigned long long int FSGL_OBJECT_ID = 0;
+
 namespace FlameSteelCore {
 
 /*! Object - base class of Flame Steel Core */

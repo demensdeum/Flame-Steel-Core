@@ -9,14 +9,13 @@
 
 #include <iostream>
 #include "Objects.h"
-#include <FlameSteelCore/sole.hpp>
 
 using namespace std;
 
 Object::Object() {
         
-	auto uuidContainer = sole::uuid0();
-	uuid = uuidContainer.str();
+	FSGL_OBJECT_ID += 1;
+	uuid = std::to_string(FSGL_OBJECT_ID);
     
 	classIdentifier = shared_ptr<string>();
 	instanceIdentifier = shared_ptr<string>();
