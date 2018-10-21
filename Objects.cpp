@@ -20,6 +20,18 @@ bool Objects::containsComponentWithIdentifier(shared_ptr<string> identifier) {
 
 }
 
+shared_ptr<Objects> Objects::copy() {
+
+	auto copy = make_shared<Objects>();
+
+	for (auto object : objects) {
+		copy->addObject(object);
+	}
+
+	return copy;
+
+}
+
 void Objects::addObject(shared_ptr<Object> object) {
     
 	if (object->getClassIdentifier().get() == nullptr) {

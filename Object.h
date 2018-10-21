@@ -52,6 +52,8 @@ public:
         
 	bool containsComponentWithIdentifier(shared_ptr<string> identifier);
 
+	string debugIdentifier = "";
+
 private:
 	/*! instanceIdentifier - string identifier of object */
 	shared_ptr<string> instanceIdentifier;

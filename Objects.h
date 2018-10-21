@@ -38,6 +38,8 @@ public:
 
 	int size();
 
+	shared_ptr<Objects> copy();
+
 	virtual ~Objects();
 
 private:
