@@ -138,7 +138,17 @@ void Objects::removeAllObjects() {
 
 void Objects::removeObjectWithClassIdentifier(shared_ptr<string> classIdentifier) {
 
-	throw logic_error("Objects::removeObjectWithClassIdentifier unimplemented");
+	auto objectIndex = -1;
+
+	for (auto object : objects) {
+		
+		objectIndex++;
+
+		if (object->getClassIdentifier()->compare(*classIdentifier) == 0) {
+			removeObjectAtIndex(objectIndex);
+			return;
+		}
+	}
 
 }
 
